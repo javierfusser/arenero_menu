@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Bebidas - Arenero Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .bebidas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .bebida-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .bebida-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bebida-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        .bebida-content {
+            padding: 20px;
+        }
+        
+        .bebida-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .bebida-desc {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .bebida-precio {
+            color: #e74c3c;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .ingredientes {
+            font-size: 0.9em;
+            color: #888;
+            font-style: italic;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .bebidas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍹 Carta de Bebidas</h1>
+            <p class="subtitle">Descubre nuestros cócteles exclusivos</p>
+        </header>
+
+        <div class="bebidas-grid">
+            <!-- Bebida 1 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🍋</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Mojito Clásico</h3>
+                    <p class="bebida-desc">El clásico cubano refrescante con hierbabuena y lima.</p>
+                    <p class="ingredientes">Ron blanco, hierbabuena, lima, azúcar, soda</p>
+                    <span class="bebida-precio">$8.50</span>
+                </div>
+            </div>
+
+            <!-- Bebida 2 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🍓</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Margarita de Fresa</h3>
+                    <p class="bebida-desc">Tequila con fresas frescas y un toque cítrico.</p>
+                    <p class="ingredientes">Tequila, triple sec, fresas, jugo de lima</p>
+                    <span class="bebida-precio">$9.00</span>
+                </div>
+            </div>
+
+            <!-- Bebida 3 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🍍</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Piña Colada</h3>
+                    <p class="bebida-desc">La bebida tropical por excelencia, cremosa y dulce.</p>
+                    <p class="ingredientes">Ron, crema de coco, jugo de piña</p>
+                    <span class="bebida-precio">$8.00</span>
+                </div>
+            </div>
+
+            <!-- Bebida 4 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🥥</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Daiquiri de Coco</h3>
+                    <p class="bebida-desc">Suave y tropical con sabor a coco natural.</p>
+                    <p class="ingredientes">Ron, crema de coco, lima, azúcar</p>
+                    <span class="bebida-precio">$8.50</span>
+                </div>
+            </div>
+
+            <!-- Bebida 5 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🍊</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Sangría Española</h3>
+                    <p class="bebida-desc">Vino tinto con frutas frescas y un toque cítrico.</p>
+                    <p class="ingredientes">Vino tinto, naranja, limón, brandy, frutas</p>
+                    <span class="bebida-precio">$7.50</span>
+                </div>
+            </div>
+
+            <!-- Bebida 6 -->
+            <div class="bebida-card">
+                <div class="bebida-img">🍒</div>
+                <div class="bebida-content">
+                    <h3 class="bebida-title">Cherry Bomb</h3>
+                    <p class="bebida-desc">Explosión de sabores con cerezas y vodka.</p>
+                    <p class="ingredientes">Vodka, licor de cereza, jugo de arándano</p>
+                    <span class="bebida-precio">$9.50</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Arenero Bar - Todos los derechos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
