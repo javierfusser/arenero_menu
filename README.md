@@ -1,2 +1,5 @@
 # arenero_menu
 curso de Tec Web BUAP FCC Otoño 2025
+
+Javier Martínez Rivera
+202338986
