@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platillos - Arenero Restaurante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #ff6b6b;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        
+        .categoria {
+            margin: 40px 0;
+        }
+        
+        .categoria-titulo {
+            font-size: 2em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .platillos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .platillo-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .platillo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .platillo-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .platillo-nombre {
+            font-size: 1.4em;
+            color: #2c3e50;
+            font-weight: 600;
+            flex: 1;
+        }
+        
+        .platillo-precio {
+            background: linear-gradient(45deg, #e74c3c, #ff6b6b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .platillo-descripcion {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .platillo-ingredientes {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .platillo-ingredientes h4 {
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ingredientes-lista {
+            list-style: none;
+            color: #5a6c7d;
+            font-size: 0.9em;
+        }
+        
+        .ingredientes-lista li {
+            padding: 3px 0;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .ingredientes-lista li:before {
+            content: "•";
+            color: #e74c3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+        
+        .badge-vegano {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .badge-picante {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .badge-popular {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .platillos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ Menú de Platillos</h1>
+            <p class="subtitle">Sabores auténticos que enamoran el paladar</p>
+        </header>
+
+        <!-- ENTRADAS -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">🍤 Entradas y Aperitivos</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Ceviche Mixto</h3>
+                        <span class="platillo-precio">$12.50</span>
+                    </div>
+                    <p class="platillo-descripcion">Pescado fresco, camarones y pulpo marinados en limón con cebolla morada, cilantro y ají limo.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Pescado blanco fresco</li>
+                            <li>Camarones</li>
+                            <li>Pulpo</li>
+                            <li>Limón verde</li>
+                            <li>Cebolla morada</li>
+                            <li>Ají limo</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Más pedido</span>
+                </div>
+
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Tequeños de Queso</h3>
+                        <span class="platillo-precio">$9.80</span>
+                    </div>
+                    <p class="platillo-descripcion">Deliciosos deditos de masa de trigo rellenos de queso blanco derretido, crujientes por fuera.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Masa de trigo</li>
+                            <li>Queso blanco</li>
+                            <li>Aceite de oliva</li>
+                            <li>Sal y especias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Empanadas de Carne</h3>
+                        <span class="platillo-precio">$10.20</span>
+                    </div>
+                    <p class="platillo-descripcion">Empanadas horneadas rellenas de carne molida sazonada con pasas, aceitunas y huevo duro.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Carne molida de res</li>
+                            <li>Masa de empanada</li>
+                            <li>Pasas rubias</li>
+                            <li>Aceitunas verdes</li>
+                            <li>Huevo duro</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-picante">Picante opcional</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLATOS FUERTES -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">🍖 Platos Fuertes</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Lomo Saltado</h3>
+                        <span class="platillo-precio">$18.90</span>
+                    </div>
+                    <p class="platillo-descripcion">Clásico peruano: lomo de res salteado con cebolla, tomate y ají, servido con papas fritas y arroz.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Lomo de res</li>
+                            <li>Cebolla roja</li>
+                            <li>Tomate</li>
+                            <li>Ají amarillo</li>
+                            <li>Papas fritas</li>
+                            <li>Arroz blanco</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Más pedido</span>
+                    <span class="badge badge-picante">Picante moderado</span>
+                </div>
+
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Arroz con Mariscos</h3>
+                        <span class="platillo-precio">$22.50</span>
+                    </div>
+                    <p class="platillo-descripcion">Arroz preparado con una selección de mariscos frescos, cilantro y un toque de pisco.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</hh4>
+                        <ul class="ingredientes-lista">
+                            <li>Mejillones</li>
+                            <li>Calamar</li>
+                            <li>Camarones</li>
+                            <li>Almejas</li>
+                            <li>Arroz</li>
+                            <li>Cilantro</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Pollo a la Brasa</h3>
+                        <span class="platillo-precio">$16.75</span>
+                    </div>
+                    <p class="platillo-descripcion">Pollo marinado en hierbas y especias, asado lentamente hasta obtener un crujiente perfecto.</p>
+                    <div class="platillo-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Pollo entero</li>
+                            <li>Romero</li>
+                            <li>Tomillo</li>
+                            <li>Ajo</li>
+                            <li>Vinagre</li>
+                            <li>Chimichurri</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VEGETARIANOS -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">🥗 Opciones Vegetarianas</h2>
+            <div class="platillos-grid">
+                <div class="platillo-card">
+                    <div class="platillo-header">
+                        <h3 class="platillo-nombre">Risotto de Hongos</h3>
+                        <span class="platillo-precio">$15.30</span>
+                    </div>
+                    <p class="platillo-descripcion">Cre

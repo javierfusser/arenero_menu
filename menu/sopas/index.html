@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopas - Arenero Restaurante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #ff6b6b;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        
+        .categoria {
+            margin: 40px 0;
+        }
+        
+        .categoria-titulo {
+            font-size: 2em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .sopas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .sopa-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .sopa-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .sopa-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .sopa-nombre {
+            font-size: 1.4em;
+            color: #2c3e50;
+            font-weight: 600;
+            flex: 1;
+        }
+        
+        .sopa-precio {
+            background: linear-gradient(45deg, #e74c3c, #ff6b6b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .sopa-descripcion {
+            color: #5a6c7d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .sopa-ingredientes {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .sopa-ingredientes h4 {
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ingredientes-lista {
+            list-style: none;
+            color: #5a6c7d;
+            font-size: 0.9em;
+        }
+        
+        .ingredientes-lista li {
+            padding: 3px 0;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .ingredientes-lista li:before {
+            content: "•";
+            color: #e74c3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-top: 10px;
+        }
+        
+        .badge-vegano {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .badge-picante {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .badge-popular {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .badge-reconfortante {
+            background: #3498db;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .sopas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍜 Menú de Sopas</h1>
+            <p class="subtitle">Calidez y sabor en cada cucharada</p>
+        </header>
+
+        <!-- SOPAS TRADICIONALES -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">🥣 Sopas Tradicionales</h2>
+            <div class="sopas-grid">
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Sopa de Pollo</h3>
+                        <span class="sopa-precio">$10.50</span>
+                    </div>
+                    <p class="sopa-descripcion">Reconfortante caldo de pollo con verduras frescas, fideos y hierbas aromáticas. Perfecta para días fríos.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Pollo orgánico</li>
+                            <li>Zanahorias</li>
+                            <li>Apio</li>
+                            <li>Fideos finos</li>
+                            <li>Cebolla</li>
+                            <li>Perejil fresco</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Más pedida</span>
+                    <span class="badge badge-reconfortante">Reconfortante</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Sopa de Tomate</h3>
+                        <span class="sopa-precio">$9.80</span>
+                    </div>
+                    <p class="sopa-descripcion">Crema de tomate natural con un toque de albahaca fresca y croutons crujientes. Suave y deliciosa.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Tomates maduros</li>
+                            <li>Albahaca fresca</li>
+                            <li>Crema de leche</li>
+                            <li>Ajo</li>
+                            <li>Croutons caseros</li>
+                            <li>Queso parmesano</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-vegano">Opción vegana</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Sopa de Lentejas</h3>
+                        <span class="sopa-precio">$11.20</span>
+                    </div>
+                    <p class="sopa-descripcion">Sopa sustanciosa de lentejas con chorizo, verduras y especias. Alta en proteínas y fibra.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Lentejas</li>
+                            <li>Chorizo español</li>
+                            <li>Zanahorias</li>
+                            <li>Papas</li>
+                            <li>Comino</li>
+                            <li>Laurel</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Reconfortante</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOPAS INTERNACIONALES -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">🌍 Sopas Internacionales</h2>
+            <div class="sopas-grid">
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Ramen Tradicional</h3>
+                        <span class="sopa-precio">$15.90</span>
+                    </div>
+                    <p class="sopa-descripcion">Auténtico ramen japonés con caldo de cerdo, fideos artesanales, huevo marinado y cerdo chashu.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Fideos ramen</li>
+                            <li>Cerdo chashu</li>
+                            <li>Huevo marinado</li>
+                            <li>Algas nori</li>
+                            <li>Brote de bambú</li>
+                            <li>Cebollín</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Más pedida</span>
+                    <span class="badge badge-picante">Picante opcional</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Minestrone Italiano</h3>
+                        <span class="sopa-precio">$12.50</span>
+                    </div>
+                    <p class="sopa-descripcion">Sopa vegetariana italiana con pasta, frijoles, verduras frescas y pesto. Sabrosa y nutritiva.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Pasta pequeña</li>
+                            <li>Frijoles cannellini</li>
+                            <li>Calabacín</li>
+                            <li>Tomate</li>
+                            <li>Albahaca</li>
+                            <li>Queso parmesano</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-vegano">Vegetariana</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Pho Vietnamita</h3>
+                        <span class="sopa-precio">$16.75</span>
+                    </div>
+                    <p class="sopa-descripcion">Caldo aromático de res con fideos de arroz, hierbas frescas y especias. Delicado y fragante.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Caldo de res</li>
+                            <li>Fideos de arroz</li>
+                            <li>Lomo de res</li>
+                            <li>Albahaca tailandesa</li>
+                            <li>Brotes de soja</li>
+                            <li>Limón</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-reconfortante">Aromática</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOPAS ESPECIALES -->
+        <section class="categoria">
+            <h2 class="categoria-titulo">⭐ Sopas Especiales</h2>
+            <div class="sopas-grid">
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Sopa de Mariscos</h3>
+                        <span class="sopa-precio">$18.30</span>
+                    </div>
+                    <p class="sopa-descripcion">Exquisita sopa con selección de mariscos frescos, caldo de pescado y un toque de vino blanco.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Camarones</li>
+                            <li>Mejillones</li>
+                            <li>Almejas</li>
+                            <li>Calamar</li>
+                            <li>Vino blanco</li>
+                            <li>Azafrán</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-popular">Especialidad</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Sopa de Champiñones</h3>
+                        <span class="sopa-precio">$13.80</span>
+                    </div>
+                    <p class="sopa-descripcion">Crema de champiñones silvestres con trufa negra y hierbas frescas. Intensa y aromática.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Champiñones portobello</li>
+                            <li>Champiñones shiitake</li>
+                            <li>Trufa negra</li>
+                            <li>Crema de leche</li>
+                            <li>Tomillo</li>
+                            <li>Vino jerez</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-vegano">Opción vegana</span>
+                </div>
+
+                <div class="sopa-card">
+                    <div class="sopa-header">
+                        <h3 class="sopa-nombre">Caldo Tlalpeño</h3>
+                        <span class="sopa-precio">$14.50</span>
+                    </div>
+                    <p class="sopa-descripcion">Caldo de pollo estilo mexicano con garbanzos, chipotle, aguacate y queso. Sabroso y picante.</p>
+                    <div class="sopa-ingredientes">
+                        <h4>Ingredientes principales</h4>
+                        <ul class="ingredientes-lista">
+                            <li>Pollo</li>
+                            <li>Garbanzos</li>
+                            <li>Chipotle</li>
+                            <li>Aguacate</li>
+                            <li>Queso panela</li>
+                            <li>Cilantro</li>
+                        </ul>
+                    </div>
+                    <span class="badge badge-picante">Picante</span>
+                    <span class="badge badge-reconfortante">Reconfortante</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2024 Arenero Restaurante - Todas nuestras sopas se preparan diariamente con ingredientes frescos</p>
+        </footer>
+    </div>
+</body>
+</html>
